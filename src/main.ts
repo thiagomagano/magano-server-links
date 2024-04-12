@@ -36,6 +36,8 @@ const component = ({
   `;
 };
 
-for (let service of services) {
-  links.innerHTML += component(service);
+if (links) {
+  for (let service of services) {
+    links.innerHTML += component(service);
+  }
 }
