@@ -5,21 +5,30 @@ import type { Service } from "./types/services.ts";
 
 const links = document.querySelector<HTMLDivElement>("#server-links");
 
-const SERVER_NAME = "magano-server";
-
-const component = ({ name, port, description, logoUrl, type }: Service) => {
+const component = ({
+  name,
+  port,
+  url,
+  description,
+  logoUrl,
+  type,
+}: Service) => {
   return `
   
   <article class="card"> 
    
-  <a href="http://${SERVER_NAME}:${port}" target="_blank">
-    <div class="flex-group">
+  
     
-    <img class='logo' src=/service-icons/${logoUrl}>${name}
+  
+    <a href="${url}" target="_blank" class="flex-group">
+      <img class='logo' src=/service-icons/${logoUrl}>
+      <h3 class="header">${name}</h3>
+    </a>
     
-    </div>
+   
+
     <p>${description}</p>
-    </a> 
+    <p><a href="${url}" target="_blank">:${port} - ${type} </a></p> 
    
   </article>
   
