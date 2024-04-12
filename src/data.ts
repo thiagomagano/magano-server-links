@@ -29,8 +29,8 @@ const services: Array<Service> = [
   },
   {
     name: "Sonarr",
-    port: 8787,
-    url: `http://${SERVER_NAME}:8787`,
+    port: 8989,
+    url: `http://${SERVER_NAME}:8989`,
     description: "Catalogo de Séries",
     logoUrl: "sonarr.svg",
     type: "Docker",
@@ -47,7 +47,7 @@ const services: Array<Service> = [
   {
     name: "Calibre",
     port: 8081,
-    url: `http://${SERVER_NAME}:8081`,
+    url: `http://${SERVER_NAME}:8082`,
     description: "Bliblioteca de Livros",
     logoUrl: "calibre.svg",
     type: "Docker",
