@@ -1,24 +1,32 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import "./style.css";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
+import services from "./data";
+import type { Service } from "./types/services.ts";
+
+const links = document.querySelector<HTMLDivElement>("#server-links");
+
+const SERVER_NAME = "magano-server";
+
+const component = ({ name, port, description, logoUrl, type }: Service) => {
+  return `
+  
+  <article class="card"> 
+   
+  <a href="http://${SERVER_NAME}:${port}" target="_blank">
+    <div class="flex-group">
+    
+    <img class='logo' src=/service-icons/${logoUrl}>${name}
+    
     </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+    <p>${description}</p>
+    </a> 
+   
+  </article>
+  
+ 
+  `;
+};
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+for (let service of services) {
+  links.innerHTML += component(service);
+}
